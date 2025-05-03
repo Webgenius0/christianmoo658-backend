@@ -7,13 +7,13 @@ To Install & Run This Project, Follow These Steps:
 1. Clone the repository:
 
     ```sh
-    git clone https://github.com/mdiktushar/Laravel-12-JWT-Auth-Template-Repository-Pattern.git
+    git clone https://github.com/Webgenius0/christianmoo658-backend.git christianmoo
     ```
 
 2. Navigate to the project directory:
 
     ```sh
-    cd christianmoo658-backend
+    cd christianmoo
     ```
 
 3. Install project dependencies:
