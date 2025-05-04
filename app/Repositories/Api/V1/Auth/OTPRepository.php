@@ -33,7 +33,7 @@ class OTPRepository implements OTPRepositoryInterface
             $user->otps()->whereOperation($operation)->delete();
 
             // Generate a new OTP
-            $otp = mt_rand(111111, 999999);
+            $otp = mt_rand(1111, 9999);
 
             // Store OTP in database
             $user->otps()->create([
