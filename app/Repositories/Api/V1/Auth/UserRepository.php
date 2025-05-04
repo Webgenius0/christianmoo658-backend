@@ -33,7 +33,10 @@ class UserRepository implements UserRepositoryInterface
             ]);
 
             // creating user profile
-            $user->profile()->create([]);
+            $user->profile()->create([
+                'gender' => $credentials['gender'],
+                'date_of_birth' => $credentials['date_of_birth'],
+            ]);
 
             return $user;
         } catch (Exception $e) {
