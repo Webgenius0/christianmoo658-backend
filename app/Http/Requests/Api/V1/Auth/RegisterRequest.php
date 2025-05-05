@@ -28,12 +28,13 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email'      => "required|email|unique:users",
-            'first_name' => "required|string",
-            'last_name'  => "required|string",
-            'password'   => "required|confirmed",
-            'gender' => 'required|in:male,female,others',
+            'email'         => "required|email|unique:users",
+            'first_name'    => "required|string",
+            'last_name'     => "required|string",
+            'password'      => "required|confirmed",
+            'gender'        => 'required|in:male,female,others',
             'date_of_birth' => 'required|date|before_or_equal:today',
+            'avatar'        => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:15360',
         ];
     }
 
@@ -61,9 +62,13 @@ class RegisterRequest extends FormRequest
             'gender.required' => 'Please select your gender.',
             'gender.in' => 'The gender must be one of the following: male, female, or others.',
 
-            'date_of_birth.required' => 'The date of birth is required.',
-            'date_of_birth.date' => 'The date of birth must be a valid date.',
+            'date_of_birth.required'        => 'The date of birth is required.',
+            'date_of_birth.date'            => 'The date of birth must be a valid date.',
             'date_of_birth.before_or_equal' => 'The date of birth must be today or in the past.',
+
+            'avatar.image' => 'The uploaded file must be an image.',
+            'avatar.mimes' => 'Only jpeg, png, jpg, gif, svg, and webp formats are allowed.',
+            'avatar.max'   => 'The image must not be greater than 15MB.',
         ];
     }
 
@@ -77,7 +82,7 @@ class RegisterRequest extends FormRequest
      */
     protected function failedValidation(Validator $validator): never
     {
-        $fieldsToCheck = ['first_name', 'last_name', 'email', 'password', 'gender', 'date_of_birth'];
+        $fieldsToCheck = ['first_name', 'last_name', 'email', 'password', 'gender', 'date_of_birth', 'avatar'];
         $message = 'Validation error'; // Default message
 
         foreach ($fieldsToCheck as $field) {
