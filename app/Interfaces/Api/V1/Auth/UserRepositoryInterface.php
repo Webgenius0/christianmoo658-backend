@@ -8,12 +8,13 @@ use Illuminate\Database\Eloquent\Collection;
 interface UserRepositoryInterface
 {
     /**
-     * Creates a new user with the provided credentials.
+     * createUser
      * @param array $credentials
+     * @param $avatar
      * @param int $role
-     * @return void
+     * @return User
      */
-    public function createUser(array $credentials,int $role = 2,):User;
+    public function createUser(array $credentials, $avatar, int $role = 2): User;
 
     /**
      * Attempts to retrieve a user by their login credentials.

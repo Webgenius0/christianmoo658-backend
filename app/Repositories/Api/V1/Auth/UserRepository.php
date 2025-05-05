@@ -12,14 +12,14 @@ use Illuminate\Support\Facades\Log;
 
 class UserRepository implements UserRepositoryInterface
 {
-
     /**
-     * Summary of createUser
+     * createUser
      * @param array $credentials
+     * @param $avatar
      * @param int $role
      * @return User
      */
-    public function createUser(array $credentials, int $role = 2): User
+    public function createUser(array $credentials, $avatar, int $role = 2): User
     {
         try {
             // creating user
@@ -29,7 +29,8 @@ class UserRepository implements UserRepositoryInterface
                 'handle'     => Helper::generateUniqueSlug($credentials['first_name'], 'users', 'handle'),
                 'email'      => $credentials['email'],
                 'password'   => Hash::make($credentials['password']),
-                'role_id'       => $role,
+                'role_id'    => $role,
+                'avatar'     => $avatar,
             ]);
 
             // creating user profile
