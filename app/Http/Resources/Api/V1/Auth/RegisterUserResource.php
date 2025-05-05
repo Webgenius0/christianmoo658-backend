@@ -7,7 +7,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class RegisterUserResource extends JsonResource
 {
-    /**
+      /**
      * Transform the resource into an array.
      *
      * @return array<string, mixed>
@@ -16,17 +16,18 @@ class RegisterUserResource extends JsonResource
     {
         $data = parent::toArray($request);
         $user = [
-            'id' => $data['user']['id'],
+            'id'         => $data['user']['id'],
+            'avatar'     => $data['user']['avatar'],
             'first_name' => $data['user']['first_name'],
-            'last_name' => $data['user']['last_name'],
-            'handle' => $data['user']['handle'],
-            'email' => $data['user']['email'],
-            'role' => $data['user']['role']['name'],
+            'last_name'  => $data['user']['last_name'],
+            'handle'     => $data['user']['handle'],
+            'email'      => $data['user']['email'],
+            'role'       => $data['user']['role']['name'],
         ];
         return [
-            'token' => $data['token'],
+            'token'  => $data['token'],
             'verify' => $data['verify'],
-            'user' => $user,
+            'user'   => $user,
         ];
     }
 }
