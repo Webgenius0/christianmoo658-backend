@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('quizzes', function (Blueprint $table) {
+        Schema::create('progress', function (Blueprint $table) {
             $table->id();
-            $table->morphs('quizeable');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->morphs('progressable');
             $table->timestamps();
-            // Optional index for performance
-            $table->index(['quizeable_id', 'quizeable_type']);
         });
     }
 
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('quizzes');
+        Schema::dropIfExists('progress');
     }
 };
