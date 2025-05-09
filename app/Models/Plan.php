@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Plan extends Model
 {
+    /**
+     * fillable
+     * @var array
+     */
     protected $fillable = [
         'name',
         'price',
