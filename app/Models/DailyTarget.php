@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DalyTarget extends Model
+class DailyTarget extends Model
 {
     /**
      * fillable

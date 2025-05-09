@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('daly_targets', function (Blueprint $table) {
+        Schema::create('daily_targets', function (Blueprint $table) {
             $table->id();
             $table->string('time');
             $table->timestamps();
