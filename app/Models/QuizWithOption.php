@@ -4,15 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Lesson extends Model
+class QuizWithOption extends Model
 {
     /**
      * fillable
      * @var array
      */
     protected $fillable = [
-        'title',
-        'content',
+        'topic',
     ];
 
     /**
