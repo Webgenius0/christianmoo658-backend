@@ -17,7 +17,7 @@ class CourseRepository implements CourseRepositoryInterface
     public function getAllCourses(): Collection
     {
         try {
-            return Course::orderByDesc('created_at')->get();
+            return Course::orderByDesc('id')->get();
         } catch (Exception $e) {
             Log::error('CourseRepository::getAllCourses', [
                 'message' => $e->getMessage(),
