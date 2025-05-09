@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('true_false_questions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('true_false_quiz_id')->constrained('true_false_quizes')->cascadeOnDelete();
+            $table->foreignId('true_false_quiz_id')->constrained('true_false_quizzes')->cascadeOnDelete();
             $table->string('question');
             $table->string('tip');
             $table->boolean('answer')->default(false);

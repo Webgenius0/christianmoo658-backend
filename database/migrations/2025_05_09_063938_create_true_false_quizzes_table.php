@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('true_false_quizes', function (Blueprint $table) {
+        Schema::create('true_false_quizzes', function (Blueprint $table) {
             $table->id();
             $table->string('topic')->nullable();
             $table->timestamps();
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('true_false_quizes');
+        Schema::dropIfExists('true_false_quizzes');
     }
 };

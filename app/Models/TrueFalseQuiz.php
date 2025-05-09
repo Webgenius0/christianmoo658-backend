@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class TrueFalseQuize extends Model
+class TrueFalseQuiz extends Model
 {
     /**
      * fillable
@@ -41,7 +41,7 @@ class TrueFalseQuize extends Model
 
     /**
      * questions
-     * @return HasMany<TrueFalseQuestion, TrueFalseQuize>
+     * @return HasMany<TrueFalseQuestion, TrueFalseQuiz>
      */
     public function questions(): HasMany
     {

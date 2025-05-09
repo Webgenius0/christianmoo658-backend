@@ -47,11 +47,11 @@ class TrueFalseQuestion extends Model
 
     /**
      * quiz
-     * @return BelongsTo<TrueFalseQuize, TrueFalseQuestion>
+     * @return BelongsTo<TrueFalseQuiz, TrueFalseQuestion>
      */
     public function quiz(): BelongsTo
     {
-        return $this->belongsTo(TrueFalseQuize::class, 'true_false_quiz_id');
+        return $this->belongsTo(TrueFalseQuiz::class, 'true_false_quiz_id');
     }
 
     /**
