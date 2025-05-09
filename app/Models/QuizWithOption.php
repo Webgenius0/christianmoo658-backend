@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class QuizWithOption extends Model
@@ -47,5 +48,14 @@ class QuizWithOption extends Model
     public function quiz(): MorphOne
     {
         return $this->morphOne(Quiz::class, 'quizeable');
+    }
+
+    /**
+     * options
+     * @return HasMany<QuizOption, QuizWithOption>
+     */
+    public function options(): HasMany
+    {
+        return $this->hasMany(QuizOption::class, 'quiz_with_option_id');
     }
 }
