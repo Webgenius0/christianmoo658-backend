@@ -57,7 +57,7 @@ class AuthController extends Controller
 
             $response = $this->authService->register($validatedData);
 
-            return $this->success(200, 'Registration Successful', new RegisterUserResource($response));
+            return $this->success(201, 'Registration Successful', new RegisterUserResource($response));
         } catch (Exception $e) {
             Log::error('AuthController::register', ['error' => $e->getMessage()]);
             return $this->error(500, 'Server Error', $e->getMessage());
