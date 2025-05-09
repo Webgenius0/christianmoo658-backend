@@ -128,4 +128,15 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail
     {
         return $this->belongsToMany(Plan::class);
     }
+
+    /**
+     * courses
+     * @return BelongsToMany<Course, User, \Illuminate\Database\Eloquent\Relations\Pivot>
+     */
+    public function courses(): BelongsToMany
+    {
+        return $this->belongsToMany(Course::class)
+            ->withTimestamps()
+            ->withPivot('daily_target_id');
+    }
 }

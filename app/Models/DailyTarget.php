@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class DailyTarget extends Model
 {
@@ -36,5 +37,27 @@ class DailyTarget extends Model
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
         ];
+    }
+
+    /**
+     * users
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<User, DailyTarget, \Illuminate\Database\Eloquent\Relations\Pivot>
+     */
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'course_user')
+                    ->withPivot('course_id')
+                    ->withTimestamps();
+    }
+
+    /**
+     * courses
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<Course, DailyTarget, \Illuminate\Database\Eloquent\Relations\Pivot>
+     */
+    public function courses(): BelongsToMany
+    {
+        return $this->belongsToMany(Course::class, 'course_user')
+                    ->withPivot('user_id')
+                    ->withTimestamps();
     }
 }
