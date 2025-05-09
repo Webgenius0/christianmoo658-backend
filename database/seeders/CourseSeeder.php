@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Faker\Factory as Faker;
 
 class CourseSeeder extends Seeder
 {
@@ -13,26 +14,19 @@ class CourseSeeder extends Seeder
      */
     public function run(): void
     {
+        $faker = Faker::create();
+
         $courses = [
-            [
-                'title' => 'Fundamentals of Business Management',
-                'description' => 'Learn the core principles of managing a successful business, including planning, strategy, and leadership.',
-            ],
-            [
-                'title' => 'Digital Marketing for Entrepreneurs',
-                'description' => 'Explore essential digital marketing techniques such as SEO, email marketing, and social media campaigns tailored for startups and small businesses.',
-            ],
-            [
-                'title' => 'Financial Accounting Basics',
-                'description' => 'Understand the fundamentals of financial accounting including balance sheets, income statements, and cash flow analysis.',
-            ],
+            'Fundamentals of Business Strategy',
+            'Digital Marketing and E-Commerce',
+            'Financial Analysis and Investment Planning',
         ];
 
-        foreach ($courses as $index => $course) {
+        foreach ($courses as $index => $title) {
             DB::table('courses')->insert([
-                'title' => $course['title'],
-                'slug' => Str::slug($course['title']) . '-' . ($index + 1),
-                'description' => $course['description'],
+                'title' => $title,
+                'slug' => Str::slug($title) . '-' . ($index + 1),
+                'description' => $faker->paragraphs(8, true),
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
