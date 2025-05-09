@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Plan extends Model
 {
@@ -38,5 +39,14 @@ class Plan extends Model
             'created_at'     => 'datetime',
             'updated_at'     => 'datetime',
         ];
+    }
+
+    /**
+     * users
+     * @return BelongsToMany<User, Plan, \Illuminate\Database\Eloquent\Relations\Pivot>
+     */
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class);
     }
 }
