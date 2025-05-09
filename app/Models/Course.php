@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use Illuminate\Cache\Events\RetrievingKey;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Course extends Model
 {
@@ -50,5 +52,23 @@ class Course extends Model
         return $this->belongsToMany(User::class)
             ->withTimestamps()
             ->withPivot('daily_target_id');
+    }
+
+    /**
+     * lessons
+     * @return HasMany<Lesson, Course>
+     */
+    public function lessons(): HasMany
+    {
+        return $this->hasMany(Lesson::class);
+    }
+
+    /**
+     * quizes
+     * @return HasMany<Quiz, Course>
+     */
+    public function quizes(): HasMany
+    {
+        return $this->hasMany(Quiz::class);
     }
 }
