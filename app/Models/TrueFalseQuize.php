@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class TrueFalseQuize extends Model
 {
@@ -36,5 +37,14 @@ class TrueFalseQuize extends Model
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
         ];
+    }
+
+    /**
+     * questions
+     * @return HasMany<TrueFalseQuestion, TrueFalseQuize>
+     */
+    public function questions(): HasMany
+    {
+        return $this->hasMany(TrueFalseQuestion::class, 'true_false_quiz_id');
     }
 }
