@@ -12,4 +12,12 @@ interface CourseRepositoryInterface
      * @return \Illuminate\Database\Eloquent\Collection<int, Course>
      */
     public function getAllCourses(): Collection;
+
+    public function getCourseById($id);
+    public function getCourseBySlug($slug);
+    public function createCourse(array $data);
+    public function updateCourse($id, array $data);
+    public function deleteCourse($id);
+    public function getCourseContents($courseId);
+    public function addLessonToCourse($courseId, $lesson);
 }

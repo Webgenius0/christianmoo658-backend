@@ -26,4 +26,39 @@ class CourseRepository implements CourseRepositoryInterface
             throw $e;
         }
     }
+
+    public function getCourseById($id)
+    {
+
+    }
+
+    public function createCourse(array $data)
+    {
+
+    }
+
+    public function updateCourse($id, array $data)
+    {
+
+    }
+
+    public function deleteCourse($id)
+    {
+
+    }
+
+    public function getCourseBySlug($slug)
+    {
+
+    }
+
+    public function getCourseContents($courseId)
+    {
+
+    }
+
+    public function addLessonToCourse($courseId, $lesson)
+    {
+
+    }
 }
