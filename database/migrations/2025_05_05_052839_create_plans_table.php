@@ -17,7 +17,7 @@ return new class extends Migration
             $table->decimal('price', 8, 2);
             $table->enum('duration', ['day','week', 'month', 'year']);
             $table->unsignedInteger('duration_value');
-            $table->json('features');
+            $table->text('features');
             $table->timestamps();
         });
     }
