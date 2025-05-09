@@ -61,4 +61,13 @@ class Course extends Model
     {
         return $this->hasMany(Lesson::class);
     }
+
+    /**
+     * contents
+     * @return HasMany<CourseContent, Course>
+     */
+    public function contents(): HasMany
+    {
+        return $this->hasMany(CourseContent::class, 'course_id');
+    }
 }

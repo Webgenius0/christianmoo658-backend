@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class CourseContent extends Model
@@ -47,5 +48,14 @@ class CourseContent extends Model
     public function contentable(): MorphTo
     {
         return $this->morphTo();
+    }
+
+    /**
+     * course
+     * @return BelongsTo<Course, CourseContent>
+     */
+    public function course(): BelongsTo
+    {
+        return $this->belongsTo(Course::class, 'course_id');
     }
 }
