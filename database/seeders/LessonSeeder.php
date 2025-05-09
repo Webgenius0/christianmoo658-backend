@@ -24,7 +24,6 @@ class LessonSeeder extends Seeder
             for ($j = 1; $j <= $count; $j++) {
                 DB::table('lessons')->insert([
                     'course_id' => $course->id,
-                    'index' => $j,
                     'title' => 'Lesson ' . $j . ': ' . $faker->sentence(3),
                     'content' => implode("\n\n", $faker->paragraphs(8)),
                     'created_at' => now(),
