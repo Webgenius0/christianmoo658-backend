@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class Lesson extends Model
 {
@@ -37,5 +38,14 @@ class Lesson extends Model
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
         ];
+    }
+
+    /**
+     * courseContent
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne<CourseContent, Lesson>
+     */
+    public function courseContent(): MorphOne
+    {
+        return $this->morphOne(CourseContent::class, 'contentable');
     }
 }

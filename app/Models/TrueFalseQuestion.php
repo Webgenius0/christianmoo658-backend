@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class TrueFalseQuestion extends Model
 {
@@ -53,4 +54,12 @@ class TrueFalseQuestion extends Model
         return $this->belongsTo(TrueFalseQuize::class, 'true_false_quiz_id');
     }
 
+    /**
+     * courseContent
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne<CourseContent, Lesson>
+     */
+    public function courseContent(): MorphOne
+    {
+        return $this->morphOne(CourseContent::class, 'contentable');
+    }
 }

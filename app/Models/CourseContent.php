@@ -3,17 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\MorphOne;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
-class QuizWithOption extends Model
+class CourseContent extends Model
 {
     /**
      * fillable
      * @var array
      */
     protected $fillable = [
-        'topic',
+        'course_id',
     ];
 
     /**
@@ -35,26 +34,18 @@ class QuizWithOption extends Model
     {
         return [
             'id'         => 'integer',
+            'course_id'  => 'integer',
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
         ];
     }
 
     /**
-     * questions
-     * @return HasMany<OptionQuizQuestion, QuizWithOption>
+     * contentable
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo<Model, CourseContent>
      */
-    public function questions(): HasMany
+    public function contentable(): MorphTo
     {
-        return $this->hasMany(OptionQuizQuestion::class, 'quiz_with_option_id');
-    }
-
-    /**
-     * courseContent
-     * @return \Illuminate\Database\Eloquent\Relations\MorphOne<CourseContent, Lesson>
-     */
-    public function courseContent(): MorphOne
-    {
-        return $this->morphOne(CourseContent::class, 'contentable');
+        return $this->morphTo();
     }
 }
