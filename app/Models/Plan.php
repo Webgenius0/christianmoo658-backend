@@ -37,6 +37,7 @@ class Plan extends Model
     protected function casts(): array
     {
         return [
+            'id'             => 'integer',
             'price'          => 'double',
             'duration_value' => 'integer',
             'features'       => 'json',

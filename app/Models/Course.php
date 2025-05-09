@@ -35,8 +35,9 @@ class Course extends Model
     protected function casts(): array
     {
         return [
-            'created_at'     => 'datetime',
-            'updated_at'     => 'datetime',
+            'id'         => 'integer',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
         ];
     }
 

@@ -34,7 +34,8 @@ class OTP extends Model
     protected function casts(): array
     {
         return [
-            'number' => 'integer',
+            'id'         => 'integer',
+            'number'     => 'integer',
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
         ];

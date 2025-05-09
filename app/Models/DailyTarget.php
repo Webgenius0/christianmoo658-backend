@@ -33,6 +33,7 @@ class DailyTarget extends Model
     protected function casts(): array
     {
         return [
+            'id'         => 'integer',
             'time'       => 'time',
             'created_at' => 'datetime',
             'updated_at' => 'datetime',

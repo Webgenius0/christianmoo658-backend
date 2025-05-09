@@ -46,8 +46,9 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail
     protected function casts(): array
     {
         return [
+            'id'                => 'integer',
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
+            'password'          => 'hashed',
         ];
     }
 
