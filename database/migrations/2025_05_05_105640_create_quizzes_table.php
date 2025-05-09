@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('quizzes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('course_id')->constrained('courses')->onDelete('cascade');
+            $table->integer('index')->nullable();
             $table->morphs('quizeable');
             $table->timestamps();
-            // Optional index for performance
             $table->index(['quizeable_id', 'quizeable_type']);
         });
     }
