@@ -6,10 +6,12 @@ use App\Interfaces\V1\Auth\ForgetPasswordRepositoryInterface;
 use App\Interfaces\V1\Auth\OTPRepositoryInterface;
 use App\Interfaces\V1\Auth\PasswordRepositoryInterface;
 use App\Interfaces\V1\Auth\UserRepositoryInterface;
+use App\Interfaces\V1\Course\CourseRepositoryInterface;
 use App\Repositories\V1\Auth\ForgetPasswordRepository;
 use App\Repositories\V1\Auth\OTPRepository;
 use App\Repositories\V1\Auth\PasswordRepository;
 use App\Repositories\V1\Auth\UserRepository;
+use App\Repositories\V1\Course\CourseRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -24,6 +26,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(ForgetPasswordRepositoryInterface::class, ForgetPasswordRepository::class);
         $this->app->bind(OTPRepositoryInterface::class, OTPRepository::class);
         $this->app->bind(PasswordRepositoryInterface::class, PasswordRepository::class);
+
+        // course
+        $this->app->bind(CourseRepositoryInterface::class, CourseRepository::class);
     }
 
     /**
