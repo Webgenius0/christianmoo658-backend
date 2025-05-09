@@ -49,6 +49,6 @@ class QuestionOption extends Model
      */
     public function question():BelongsTo
     {
-        return $this->belongsTo(OptionQuizQuestion::class);
+        return $this->belongsTo(OptionQuizQuestion::class, 'option_quiz_question_id');
     }
 }

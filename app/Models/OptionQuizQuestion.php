@@ -58,6 +58,6 @@ class OptionQuizQuestion extends Model
      */
     public function options():HasMany
     {
-        return $this->hasMany(QuestionOption::class);
+        return $this->hasMany(QuestionOption::class, 'option_quiz_question_id');
     }
 }
