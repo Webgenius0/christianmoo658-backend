@@ -17,7 +17,6 @@ return new class extends Migration
             $table->morphs('contentable');
             $table->unsignedInteger('position')->nullable()->comment('Order of content in course');
             $table->timestamps();
-            $table->timestamps();
         });
     }
 
