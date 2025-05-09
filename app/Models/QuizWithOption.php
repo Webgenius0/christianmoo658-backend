@@ -45,6 +45,6 @@ class QuizWithOption extends Model
      */
     public function questions():HasMany
     {
-        return $this->hasMany(OptionQuizQuestion::class);
+        return $this->hasMany(OptionQuizQuestion::class, 'quiz_with_option_id');
     }
 }
