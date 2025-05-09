@@ -3,16 +3,18 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class QuizWithOption extends Model
+class OptionQuizQuestion extends Model
 {
     /**
      * fillable
      * @var array
      */
     protected $fillable = [
-        'topic',
+        'quiz_with_option_id',
+        'question',
+        'tip',
     ];
 
     /**
@@ -33,18 +35,19 @@ class QuizWithOption extends Model
     protected function casts(): array
     {
         return [
-            'id'         => 'integer',
-            'created_at' => 'datetime',
-            'updated_at' => 'datetime',
+            'id'                  => 'integer',
+            'quiz_with_option_id' => 'integer',
+            'created_at'          => 'datetime',
+            'updated_at'          => 'datetime',
         ];
     }
 
     /**
-     * questions
-     * @return HasMany<OptionQuizQuestion, QuizWithOption>
+     * quiz
+     * @return BelongsTo<QuizWithOption, OptionQuizQuestion>
      */
-    public function questions():HasMany
+    public function quiz(): BelongsTo
     {
-        return $this->hasMany(OptionQuizQuestion::class);
+        return $this->belongsTo(QuizWithOption::class);
     }
 }
