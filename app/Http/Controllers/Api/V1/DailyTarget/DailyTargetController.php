@@ -35,7 +35,7 @@ class DailyTargetController extends Controller
         try {
             $response = $this->dailyTargetService->getDailyTargetList();
             return $this->success(200, 'daily target list', $response);
-        } catch (Exception $e) {
+        }catch (Exception $e) {
             Log::error('DailyTargetController::index', [
                 'message' => $e->getMessage(),
                 'trace' => $e->getTraceAsString(),
