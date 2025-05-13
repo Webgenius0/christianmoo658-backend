@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('daily_targets', function (Blueprint $table) {
             $table->id();
-            $table->string('time');
+            $table->string('time')->unique();
             $table->timestamps();
         });
     }
