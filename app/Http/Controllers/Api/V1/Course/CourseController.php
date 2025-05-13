@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1\Course;
 
 use App\Http\Controllers\Api\V1\Controller;
+use App\Models\Course;
 use App\Services\Api\V1\Course\CourseService;
 use Exception;
 use Illuminate\Http\JsonResponse;
@@ -42,5 +43,11 @@ class CourseController extends Controller
             ]);
             return $this->error(500, 'server error', $e->getMessage());
         }
+    }
+
+
+    public function show(Course $course)
+    {
+
     }
 }

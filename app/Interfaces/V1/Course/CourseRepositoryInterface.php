@@ -15,10 +15,10 @@ interface CourseRepositoryInterface
 
     /**
      * getCourseById
-     * @param int $id
+     * @param Course $course
      * @return Course
      */
-    public function getCourseById(int $id): Course;
+    public function getCourseById(Course $course): Course;
     public function getCourseBySlug($slug);
     public function createCourse(array $data);
     public function updateCourse($id, array $data);

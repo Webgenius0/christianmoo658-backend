@@ -29,13 +29,14 @@ class CourseRepository implements CourseRepositoryInterface
 
     /**
      * getCourseById
-     * @param int $id
+     * @param Course $course
      * @return Course
      */
-    public function getCourseById(int $id): Course
+    public function getCourseById(Course $course): Course
     {
         try {
-            return Course::with('contents')->findOrFail($id);
+            $course->load('contents');
+            return $course;
         } catch (Exception $e) {
             Log::error('CourseRepository::getCourseById', [
                 'message' => $e->getMessage(),
