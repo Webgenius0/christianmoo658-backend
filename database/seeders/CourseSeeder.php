@@ -17,7 +17,7 @@ class CourseSeeder extends Seeder
         $faker = Faker::create();
 
         $courses = [
-            'Fundamentals of Business Strategy',
+            'Fundamentals of Business  Strategy',
             'Digital Marketing and E-Commerce',
             'Financial Analysis and Investment Planning',
             'Introduction to Data Science and Analytics',
