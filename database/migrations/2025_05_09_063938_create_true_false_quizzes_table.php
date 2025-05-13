@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('true_false_quizzes', function (Blueprint $table) {
             $table->id();
             $table->string('topic')->nullable();
+            $table->enum('type', ['true-false'])->default('true-false');
             $table->timestamps();
         });
     }
