@@ -14,6 +14,7 @@ class QuizWithOption extends Model
      */
     protected $fillable = [
         'topic',
+        'type',
     ];
 
     /**

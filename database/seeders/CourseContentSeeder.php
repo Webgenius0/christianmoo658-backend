@@ -11,6 +11,7 @@ use App\Models\QuestionOption;
 use App\Models\TrueFalseQuiz;
 use App\Models\TrueFalseQuestion;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Arr;
 use Faker\Factory as Faker;
 
 class CourseContentSeeder extends Seeder
@@ -42,6 +43,7 @@ class CourseContentSeeder extends Seeder
             for ($i = 1; $i <= 3; $i++) {
                 $quiz = QuizWithOption::create([
                     'topic' => "Quiz MCQ {$i} - " . $faker->sentence(3),
+                    'type' => Arr::random(['single', 'multi']),
                 ]);
 
                 for ($q = 1; $q <= 5; $q++) {

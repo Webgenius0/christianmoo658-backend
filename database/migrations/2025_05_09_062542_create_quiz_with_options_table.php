@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('quiz_with_options', function (Blueprint $table) {
             $table->id();
             $table->string('topic')->nullable();
+            $table->enum('type', ['single', 'multi']);
             $table->timestamps();
         });
     }
