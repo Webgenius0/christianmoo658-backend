@@ -45,12 +45,14 @@ class CourseService
     /**
      * courseContents
      * @param \App\Models\Course $course
-     * @return \App\Models\Course
+     * @return Collection
      */
-    public function courseContents(Course $course): Course
+    public function courseContents(Course $course): Collection
     {
         try {
-            return $this->courseRepository->getCourseById($course);
+            $course = $this->courseRepository->getCourseById($course);
+            $groupedContents = $course->contents->groupBy('module');
+            return $groupedContents;
         } catch (Exception $e) {
             Log::error('CourseService::getCourseList', [
                 'message' => $e->getMessage(),
