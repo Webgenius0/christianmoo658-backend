@@ -13,7 +13,7 @@ class CourseContent extends Model
      * @var array
      */
     protected $fillable = [
-        'course_id',
+        'course_id', 'module', 'position'
     ];
 
     /**
@@ -36,6 +36,8 @@ class CourseContent extends Model
         return [
             'id'         => 'integer',
             'course_id'  => 'integer',
+            'position'   => 'integer',
+            'module'     => 'integer',
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
         ];

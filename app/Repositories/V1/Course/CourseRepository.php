@@ -35,7 +35,10 @@ class CourseRepository implements CourseRepositoryInterface
     public function getCourseById(Course $course): Course
     {
         try {
-            $course->load('contents');
+            $course->load(['contents' => function ($query) {
+                $query->orderBy('position', 'asc');
+            }]);
+            $course->setVisible(['contents']);
             return $course;
         } catch (Exception $e) {
             Log::error('CourseRepository::getCourseById', [

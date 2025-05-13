@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('course_id');
             $table->morphs('contentable');
             $table->unsignedInteger('position')->nullable()->comment('Order of content in course');
+            $table->unsignedInteger('module')->default(0);
             $table->timestamps();
         });
     }

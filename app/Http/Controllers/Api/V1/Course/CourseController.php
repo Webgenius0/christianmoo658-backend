@@ -36,7 +36,7 @@ class CourseController extends Controller
         try {
             $response = $this->courseService->getCourseList();
             return $this->success(200, 'all courses', $response);
-        }catch (Exception $e) {
+        } catch (Exception $e) {
             Log::error('CourseService::getCourseList', [
                 'message' => $e->getMessage(),
                 'trace' => $e->getTraceAsString(),
@@ -45,9 +45,22 @@ class CourseController extends Controller
         }
     }
 
-
-    public function show(Course $course)
+    /**
+     * show
+     * @param \App\Models\Course $course
+     * @return JsonResponse
+     */
+    public function show(Course $course): JsonResponse
     {
-
+        try {
+            $response = $this->courseService->courseContents($course);
+            return $this->success(200, 'all courses', $response);
+        } catch (Exception $e) {
+            Log::error('CourseService::show', [
+                'message' => $e->getMessage(),
+                'trace' => $e->getTraceAsString(),
+            ]);
+            return $this->error(500, 'server error', $e->getMessage());
+        }
     }
 }
