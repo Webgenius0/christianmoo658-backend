@@ -13,7 +13,12 @@ interface CourseRepositoryInterface
      */
     public function getAllCourses(): Collection;
 
-    public function getCourseById($id);
+    /**
+     * getCourseById
+     * @param int $id
+     * @return Course
+     */
+    public function getCourseById(int $id): Course;
     public function getCourseBySlug($slug);
     public function createCourse(array $data);
     public function updateCourse($id, array $data);
