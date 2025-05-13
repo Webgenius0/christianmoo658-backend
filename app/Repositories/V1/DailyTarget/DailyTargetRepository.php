@@ -17,7 +17,7 @@ class DailyTargetRepository implements DailyTargetRepositoryInterface
     public function getAllDailyTarget(): Collection
     {
         try {
-            return DailyTarget::orderBy('time')->get();
+            return DailyTarget::orderBy('time','asc')->get();
         } catch (Exception $e) {
             Log::error('DailyTargetRepository::getAllDailyTarget', [
                 'message' => $e->getMessage(),

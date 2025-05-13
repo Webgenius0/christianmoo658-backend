@@ -34,7 +34,7 @@ class DailyTarget extends Model
     {
         return [
             'id'         => 'integer',
-            'time'       => 'time',
+            'time'       => 'integer',
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
         ];
